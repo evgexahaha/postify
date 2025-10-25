@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Postify</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="app">
+<header>
+    <div class="logo">Postify</div>
+    <nav>
+        <a @click.prevent="page = 'mainPage'">Главная</a>
+        <a v-if="!api_token" @click.prevent="page = 'loginPage'">Авторизация</a>
+        <a v-if="!api_token" @click.prevent="page = 'regPage'">Регистрация</a>
+        <a v-if="api_token" @click.prevent="page = 'storePage'">Создать пост</a>
+        <a v-if="api_token" @click.prevent="page = 'profilePage'">Профиль</a>
+        <a v-if="api_token" @click.prevent="logout">Выйти</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- Главная | index.html -->
+    <section v-if="page === 'mainPage'" id="home">
+        <h2>Все посты</h2>
+        <div class="posts-grid">
+            <div v-for="post in posts" class="post-card">
+                <img :src="post.photo_url" alt="photo">
+                <div class="content">
+                    <h3>{{ post.title }}</h3>
+                    <p class="author">Автор: {{ post.user.name }}</p>
+                    <a class="btn" @click.prevent='loadPost(post.id)'>Открыть</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Главная -->
+
+    <!-- Создать пост | create.html -->
+    <section v-if="page === 'storePage'" id="create">
+        <form>
+            <h2>Создание поста</h2>
+            <input v-model="storeForm.title" type="text" placeholder="Заголовок поста" required>
+            <textarea v-model="storeForm.description" rows="6" placeholder="Основной текст..." required></textarea>
+            <input ref="photo" type="file" required>
+            <button type="submit" @click.prevent="store">Создать</button>
+        </form>
+    </section>
+    <!-- /Создать пост -->
+
+    <!-- Профиль | profile.html -->
+    <section v-if="page === 'profilePage'" id="profile">
+        <h2>Настройки профиля</h2>
+
+
+        <h2>Мои посты</h2>
+        <div class="posts-grid">
+            <div class="post-card" v-for="post in userPosts">
+                <img :src="post.photo_url" alt="photo">
+                <div class="content">
+                    <h3>{{ post.title }}</h3>
+                    <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+                        <a class="btn" @click.prevent="loadPost(post.id)">Открыть</a>
+                        <a class="btn del" @click.prevent="destroy(post.id)">Удалить пост</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Профиль -->
+
+    <!-- Авторизация | login.html -->
+    <section v-if="page === 'loginPage'" id="login">
+        <form>
+            <h2>Авторизация</h2>
+            <input v-model="loginForm.email" type="email" placeholder="Email" required>
+            <input v-model="loginForm.password" type="password" placeholder="Пароль" required>
+            <button @click.prevent="login" type="submit">Войти</button>
+        </form>
+    </section>
+    <!-- /Авторизация -->
+
+    <!-- Регистрация | register.html -->
+    <section v-if="page === 'regPage'" id="register">
+        <form>
+            <h2>Регистрация</h2>
+            <input v-model="registerForm.email" type="email" placeholder="Email" required>
+            <input v-model="registerForm.name" type="text" placeholder="Имя" required>
+            <input v-model="registerForm.password" type="password" placeholder="Пароль" required>
+            <button @click.prevent="register" type="submit">Зарегистрироваться</button>
+        </form>
+    </section>
+    <!-- /Регистрация -->
+
+    <!-- Пост | post.html -->
+    <section v-if="page === 'postPage'" id="post">
+        <div class="post-card">
+            <img :src="post.photo_url" alt="photo" style="height: 100%">
+            <div class="content">
+                <h2>{{ post.title }}</h2>
+                <p class="author">Автор: {{ post.user.name }}</p>
+                <p class="author">Дата загрузки: {{ post.date }}</p>
+                <p>{{ post.description }}</p>
+            </div>
+        </div>
+
+        <form v-if="api_token">
+            <h3>Добавить комментарий</h3>
+
+            <input v-model="commentForm.comment" type="text" placeholder="Введите текст..." required>
+            <button type="submit" @click.prevent="addComment(post.id)">Создать</button>
+        </form>
+
+        <div class="post-card" v-for="comment in comments" style="margin-bottom: 10px; padding: 20px;">
+            <div style="display: flex; justify-content: flex-start; flex-wrap: wrap; flex-direction: column;">
+                <div style="display: flex;">
+                    <img :src="comment.user.photo_profile || 'img/default.jpg'" alt="photo" style="width: 100px; margin-right: 20px;">
+                    <h3>{{ comment.comment }}</h3>
+                </div>
+                <div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <p>Автор: {{ comment.user.name }}</p>
+                        <p>Создан: {{ new Date(comment.created_at).toLocaleString() }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Пост -->
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

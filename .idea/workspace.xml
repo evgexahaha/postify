@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6c70cf19-714a-44e2-89a9-a0ded57b3c97" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:/php/php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="33ZOShCBFC2oG7TjpQKo62RjgKV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/progs/OSPanel/home/postify&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\progs\OSPanel\home\postify\img" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-PS-252.23892.419" />
+        <option value="bundled-php-predefined-a98d8de5180a-c72577f2c82f-com.jetbrains.php.sharedIndexes-PS-252.23892.419" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c70cf19-714a-44e2-89a9-a0ded57b3c97" name="Changes" comment="" />
+      <created>1759521128394</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1759521128394</updated>
+      <workItem from="1759521129619" duration="9000" />
+      <workItem from="1759521148171" duration="81000" />
+      <workItem from="1759521235983" duration="404000" />
+      <workItem from="1759566121356" duration="971000" />
+      <workItem from="1759567620642" duration="360000" />
+      <workItem from="1759568152894" duration="9000" />
+      <workItem from="1759568457939" duration="1000" />
+      <workItem from="1759568461065" duration="1104000" />
+      <workItem from="1759569866814" duration="929000" />
+      <workItem from="1759570835894" duration="1544000" />
+      <workItem from="1759572675819" duration="596000" />
+      <workItem from="1759574025552" duration="263000" />
+      <workItem from="1759574307177" duration="2387000" />
+      <workItem from="1759579476764" duration="1429000" />
+      <workItem from="1759652216871" duration="1206000" />
+      <workItem from="1759659086812" duration="331000" />
+      <workItem from="1759659435965" duration="318000" />
+      <workItem from="1759660505032" duration="15000" />
+      <workItem from="1759693618284" duration="463000" />
+      <workItem from="1759737933800" duration="328000" />
+      <workItem from="1759739484504" duration="331000" />
+      <workItem from="1759906665521" duration="1227000" />
+      <workItem from="1759995172327" duration="86000" />
+      <workItem from="1760349536104" duration="157000" />
+      <workItem from="1760420671293" duration="595000" />
+      <workItem from="1760421340334" duration="1007000" />
+      <workItem from="1760423781870" duration="1554000" />
+      <workItem from="1760428748893" duration="755000" />
+      <workItem from="1760430925348" duration="184000" />
+      <workItem from="1760515893768" duration="3000" />
+      <workItem from="1760942491119" duration="73000" />
+      <workItem from="1761119025431" duration="3783000" />
+      <workItem from="1761209076976" duration="3391000" />
+      <workItem from="1761219152720" duration="18000" />
+      <workItem from="1761296874131" duration="3382000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
