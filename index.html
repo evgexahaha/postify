@@ -137,7 +137,7 @@
                 </div>
                 <div>
                     <div style="display: flex; justify-content: space-between;">
-                        <p>Автор: {{ comment.user.name }}</p>
+                        <p @click.prevent="showAnyProfile(comment.user.name)">Автор: {{ comment.user.name }}</p>
                         <p>Создан: {{ new Date(comment.created_at).toLocaleString() }}</p>
                     </div>
                 </div>
@@ -146,6 +146,23 @@
     </section>
     <!-- /Пост -->
 
+    <!-- Профиль другого пользователя | anyProfile.html -->
+    <section v-if="page === 'anyProfilePage'" id="anyProfile">
+        <h2>Профиль пользователя: {{ anyProfile.name }}</h2>
+        <div class="profile_settings">
+            <form class="photo_profile_form">
+                <h3>Фото профиля</h3>
+                <img class="photo_profile" :src="anyProfile.photo_profile || 'img/default.jpg'" alt="profile photo">
+                <p>Дата регистрации: {{ new Date(anyProfile.created_at).toLocaleString() }}</p>
+            </form>
+
+            <form class="desc_profile_form">
+                <h3>Описание профиля</h3>
+                <p>{{ anyProfile.desc_profile || 'Нет описание профиля' }}</p>
+            </form>
+        </div>
+    </section>
+    <!-- /Профиль другого пользователя -->
 </div>
 
 <script src="main.js"></script>

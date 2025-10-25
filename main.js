@@ -29,6 +29,7 @@ const app = Vue.createApp({
             },
             userPosts: null,
             comments: null,
+            anyProfile: null,
             api_token: localStorage.getItem('api_token'),
         }
     },
@@ -329,6 +330,23 @@ const app = Vue.createApp({
                     this.profileForm.desc_profile = null;
 
                     this.profile();
+                })
+                .catch((error) => console.error(error));
+        },
+
+        // Просмотр профиля другого пользователя
+        showAnyProfile(name) {
+            const requestOptions = {
+                method: "GET",
+                redirect: "follow"
+            };
+
+            fetch(`${host}/profile/${name}`, requestOptions)
+                .then((response) => response.json())
+                .then((result) => {
+                    console.log(result);
+                    this.anyProfile = result.data;
+                    this.page = 'anyProfilePage';
                 })
                 .catch((error) => console.error(error));
         }
