@@ -23,6 +23,10 @@ const app = Vue.createApp({
             commentForm: {
                 comment: null,
             },
+            profileForm: {
+                photo_profile: null,
+                desc_profile: null,
+            },
             userPosts: null,
             comments: null,
             api_token: localStorage.getItem('api_token'),
@@ -222,8 +226,7 @@ const app = Vue.createApp({
             fetch(`${host}/profile`, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
-                    // console.log(result);
-                    this.userPosts = result.data.userPosts;
+                    this.userPosts = result.data;
                 })
                 .catch((error) => console.error(error));
         },
@@ -275,6 +278,60 @@ const app = Vue.createApp({
                 })
                 .catch((error) => console.error(error));
         },
+
+        // Добавление и обновление фото профиля
+        addPhotoProfile() {
+            const myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer ${this.api_token}`);
+
+            const formdata = new FormData();
+            formdata.append("photo_profile", this.$refs.photo_profile.files[0]);
+
+            const requestOptions = {
+                method: "POST",
+                headers: myHeaders,
+                body: formdata,
+                redirect: "follow"
+            };
+
+            fetch(`${host}/profile/new/photo`, requestOptions)
+                .then((response) => response.json())
+                .then((result) => {
+                    // console.log(result);
+
+                    this.$refs.photo_profile.files[0] = null;
+
+                    this.profile();
+                })
+                .catch((error) => console.error(error));
+        },
+
+        // Добавление и обновление описания профиля
+        addDescProfile() {
+            const myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer ${this.api_token}`);
+
+            const formdata = new FormData();
+            formdata.append("desc_profile", this.profileForm.desc_profile);
+
+            const requestOptions = {
+                method: "POST",
+                headers: myHeaders,
+                body: formdata,
+                redirect: "follow"
+            };
+
+            fetch(`${host}/profile/new/desc`, requestOptions)
+                .then((response) => response.json())
+                .then((result) => {
+                    // console.log(result);
+
+                    this.profileForm.desc_profile = null;
+
+                    this.profile();
+                })
+                .catch((error) => console.error(error));
+        }
     },
     mounted() {
         this.allPosts();

@@ -174,3 +174,30 @@ form button:hover {
     line-height: 1.6;
     color: #444;
 }
+
+.profile_settings {
+    display: flex;
+    align-items: center;
+}
+
+.photo_profile_form {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.photo_profile_form input {
+    width: 93%;
+}
+
+.desc_profile_form {
+    width: 50%;
+}
+.desc_profile_form textarea {
+    margin-top: 50px;
+    width: 96%;
+}
+
+.photo_profile {
+    width: 100%;
+}

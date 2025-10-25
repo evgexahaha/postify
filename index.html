@@ -53,11 +53,27 @@
     <!-- Профиль | profile.html -->
     <section v-if="page === 'profilePage'" id="profile">
         <h2>Настройки профиля</h2>
+        <div class="profile_settings">
+            <form class="photo_profile_form">
+                <h3>Фото профиля</h3>
+                <img class="photo_profile" :src="userPosts.photo_profile || 'img/default.jpg'" alt="profile photo">
 
+                <input ref="photo_profile" type="file" required>
+                <button type="submit" @click.prevent="addPhotoProfile">Обновить</button>
+            </form>
+
+            <form class="desc_profile_form">
+                <h3>Описание профиля</h3>
+                <p>{{ userPosts.desc_profile || 'Нет описание профиля' }}</p>
+
+                <textarea v-model="profileForm.desc_profile" rows="6" placeholder="Введите описание для профиля..." required></textarea>
+                <button type="submit" @click.prevent="addDescProfile">Обновить</button>
+            </form>
+        </div>
 
         <h2>Мои посты</h2>
         <div class="posts-grid">
-            <div class="post-card" v-for="post in userPosts">
+            <div class="post-card" v-for="post in userPosts.userPosts">
                 <img :src="post.photo_url" alt="photo">
                 <div class="content">
                     <h3>{{ post.title }}</h3>
