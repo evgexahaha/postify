@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c70cf19-714a-44e2-89a9-a0ded57b3c97" name="Changes" comment="Добавил настройки профиля + мелкие правки по проекту">
+      <change afterPath="$PROJECT_DIR$/img/delete.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/edit.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/progs/OSPanel/home/postify&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/progs/OSPanel/home/postify/img&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -58,6 +61,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\progs\OSPanel\home\postify\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\progs\OSPanel\home\postify\img" />
     </key>
@@ -119,6 +125,12 @@
       <workItem from="1761391560253" duration="2701000" />
       <workItem from="1761404182264" duration="1644000" />
       <workItem from="1761405960172" duration="766000" />
+      <workItem from="1761407506169" duration="243000" />
+      <workItem from="1761407792285" duration="2000" />
+      <workItem from="1761461214180" duration="3288000" />
+      <workItem from="1761464807808" duration="382000" />
+      <workItem from="1761465267888" duration="192000" />
+      <workItem from="1761465499399" duration="542000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил настройки профиля + мелкие правки по проекту">
       <option name="closed" value="true" />

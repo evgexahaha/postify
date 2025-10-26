@@ -227,6 +227,7 @@ const app = Vue.createApp({
             fetch(`${host}/profile`, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
+                    console.log(result);
                     this.userPosts = result.data;
                 })
                 .catch((error) => console.error(error));
@@ -247,7 +248,7 @@ const app = Vue.createApp({
             fetch(`${host}/post/${id}/comments`, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
-                    // console.log(result);
+                    console.log(result);
                     this.comments = result.data.comments;
                 })
                 .catch((error) => console.error(error));
@@ -273,7 +274,6 @@ const app = Vue.createApp({
             fetch(`${host}/post/${id}/comment/new`, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
-                    console.log(result);
                     this.allComments(id);
                     this.commentForm.comment = null;
                 })
@@ -344,12 +344,30 @@ const app = Vue.createApp({
             fetch(`${host}/profile/${name}`, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
-                    console.log(result);
                     this.anyProfile = result.data;
                     this.page = 'anyProfilePage';
                 })
                 .catch((error) => console.error(error));
-        }
+        },
+
+        // Удаление комментария
+        destroyComment(id) {
+            const myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer ${this.api_token}`);
+
+            const requestOptions = {
+                method: "DELETE",
+                headers: myHeaders,
+                redirect: "follow"
+            };
+
+            fetch(`${host}/post/${id}/comment/destroy`, requestOptions)
+                .then((response) => response.json())
+                .then((result) => {
+                    this.loadPost(this.post.id);
+                })
+                .catch((error) => console.error(error));
+        },
     },
     mounted() {
         this.allPosts();

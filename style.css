@@ -98,7 +98,11 @@ header nav a:hover {
 }
 
 .del {
-    background-color: red !important;
+    background-color: #f63c3c !important;
+}
+
+.edit {
+    background-color: #5b89f0 !important;
 }
 
 /* Формы */
