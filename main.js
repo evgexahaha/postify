@@ -172,7 +172,7 @@ const app = Vue.createApp({
             fetch(`${host}/post/new`, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
-                    console.log(result);
+                    // console.log(result);
                     this.storeForm.title = null;
                     this.storeForm.description = null;
                     this.$refs.photo.files[0] = null;
@@ -248,7 +248,7 @@ const app = Vue.createApp({
             fetch(`${host}/post/${id}/comments`, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
-                    console.log(result);
+                    // console.log(result);
                     this.comments = result.data.comments;
                 })
                 .catch((error) => console.error(error));
