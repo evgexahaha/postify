@@ -79,7 +79,11 @@
                     <h3>{{ post.title }}</h3>
                     <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
                         <a class="btn" @click.prevent="loadPost(post.id)">Открыть</a>
-                        <a class="btn del" @click.prevent="destroy(post.id)">Удалить пост</a>
+
+                        <div style="display: flex">
+                            <img class="btn edit" @click.prevent="getIdForUpdate(post.id)" src="img/edit(white).svg" alt="del" style="width: 17px; height: 17px;">
+                            <img class="btn del" @click.prevent="destroy(post.id)" src="img/delete(white).svg" alt="del" style="width: 17px; height: 17px; margin-left: 10px;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,8 +149,8 @@
                 </div>
             </div>
             <div v-if="comment.user.id === userPosts.id" style="display: flex; align-items: center;">
-                <img src="img/edit.svg" alt="edit" style="background-color: white; width: 30px">
-                <img @click.prevent="destroyComment(comment.id)" src="img/delete.svg" alt="delete" style="background-color: white; width: 30px; margin-left: 20px;">
+                <img src="img/edit(black).svg" alt="edit" style="background-color: white; width: 30px">
+                <img @click.prevent="destroyComment(comment.id)" src="img/delete(black).svg" alt="delete" style="background-color: white; width: 30px; margin-left: 20px;">
             </div>
         </div>
     </section>
@@ -169,6 +173,20 @@
         </div>
     </section>
     <!-- /Профиль другого пользователя -->
+
+    <!-- Редактирование поста | update.html -->
+    <section v-if="page === 'updatePage'" id="update">
+        <form>
+            <h2>Редактировать пост</h2>
+            <img :src="post.photo_url" alt="photo" style="width: 100% !important;">
+
+            <input v-model="updateForm.title" type="text" placeholder="Заголовок поста" required>
+            <textarea v-model="updateForm.description" rows="6" placeholder="Основной текст..." required></textarea>
+            <input ref="update_photo" type="file" required>
+            <button type="submit" @click.prevent="updatePost(updateForm.id)">Редактировать</button>
+        </form>
+    </section>
+    <!-- /Редактирование поста -->
 </div>
 
 <script src="main.js"></script>

@@ -27,6 +27,12 @@ const app = Vue.createApp({
                 photo_profile: null,
                 desc_profile: null,
             },
+            updateForm: {
+                id: null,
+                title: null,
+                description: null,
+                update_photo: null,
+            },
             userPosts: null,
             comments: null,
             anyProfile: null,
@@ -227,7 +233,7 @@ const app = Vue.createApp({
             fetch(`${host}/profile`, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
-                    console.log(result);
+                    // console.log(result);
                     this.userPosts = result.data;
                 })
                 .catch((error) => console.error(error));
@@ -235,7 +241,55 @@ const app = Vue.createApp({
 
         // Обновление поста
         updatePost(id) {
+            const myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer ${this.api_token}`);
 
+            const formdata = new FormData();
+            formdata.append("title", this.updateForm.title);
+            formdata.append("description", this.updateForm.description);
+            formdata.append("photo_url", this.$refs.update_photo.files[0]);
+
+            const requestOptions = {
+                method: "POST",
+                headers: myHeaders,
+                body: formdata,
+                redirect: "follow"
+            };
+
+            fetch(`${host}/post/${id}/update`, requestOptions)
+                .then((response) => response.json())
+                .then((result) => {
+                    this.updateForm.title = null;
+                    this.updateForm.description = null;
+                    this.$refs.update_photo.files[0] = null;
+
+                    this.profile();
+                    this.allPosts();
+
+                    this.page = 'profilePage';
+                })
+                .catch((error) => console.error(error));
+        },
+
+        // Открытие страницы для редактирования
+        getIdForUpdate(id) {
+            const raw = "";
+
+            const requestOptions = {
+                method: "GET",
+                body: raw,
+                redirect: "follow"
+            };
+
+            fetch(`${host}/posts/${id}`)
+                .then((response) => response.json())
+                .then((result) => {
+                    // console.log(result);
+                    this.updateForm.id = id;
+                    this.post = result.data.post;
+                    this.page = 'updatePage';
+                })
+                .catch((error) => console.error(error));
         },
 
         // Отображение всех комментариев
