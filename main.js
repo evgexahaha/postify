@@ -37,6 +37,7 @@ const app = Vue.createApp({
             comments: null,
             anyProfile: null,
             api_token: localStorage.getItem('api_token'),
+            isNavOpen: false
         }
     },
     methods: {
@@ -422,6 +423,14 @@ const app = Vue.createApp({
                 })
                 .catch((error) => console.error(error));
         },
+        
+        toggleNav() {
+            this.isNavOpen = !this.isNavOpen;
+        },
+
+        closeNav() {
+            this.isNavOpen = false;
+        }
     },
     mounted() {
         this.allPosts();

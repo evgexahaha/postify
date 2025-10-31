@@ -10,14 +10,19 @@
 <body id="app">
 <header>
     <div class="logo">Postify</div>
-    <nav>
-        <a @click.prevent="page = 'mainPage'">Главная</a>
-        <a v-if="!api_token" @click.prevent="page = 'loginPage'">Авторизация</a>
-        <a v-if="!api_token" @click.prevent="page = 'regPage'">Регистрация</a>
-        <a v-if="api_token" @click.prevent="page = 'storePage'">Создать пост</a>
-        <a v-if="api_token" @click.prevent="page = 'profilePage'">Профиль</a>
-        <a v-if="api_token" @click.prevent="logout">Выйти</a>
+    <nav :class="{ 'nav-open': isNavOpen }">
+        <a @click.prevent="page = 'mainPage'; closeNav()">Главная</a>
+        <a v-if="!api_token" @click.prevent="page = 'loginPage'; closeNav()">Авторизация</a>
+        <a v-if="!api_token" @click.prevent="page = 'regPage'; closeNav()">Регистрация</a>
+        <a v-if="api_token" @click.prevent="page = 'storePage'; closeNav()">Создать пост</a>
+        <a v-if="api_token" @click.prevent="page = 'profilePage'; closeNav()">Профиль</a>
+        <a v-if="api_token" @click.prevent="logout; closeNav()">Выйти</a>
     </nav>
+    <div class="burger-menu" @click="toggleNav">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </header>
 
 <div class="container">
@@ -77,10 +82,10 @@
                 <img :src="post.photo_url" alt="photo">
                 <div class="content">
                     <h3>{{ post.title }}</h3>
-                    <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+                    <div class="post-actions">
                         <a class="btn" @click.prevent="loadPost(post.id)">Открыть</a>
 
-                        <div style="display: flex">
+                        <div class="action-icons">
                             <img class="btn edit" @click.prevent="getIdForUpdate(post.id)" src="img/edit(white).svg" alt="del" style="width: 17px; height: 17px;">
                             <img class="btn del" @click.prevent="destroy(post.id)" src="img/delete(white).svg" alt="del" style="width: 17px; height: 17px; margin-left: 10px;">
                         </div>

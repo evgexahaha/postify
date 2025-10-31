@@ -8,15 +8,38 @@ body {
 header {
     background: #222;
     color: white;
-    padding: 15px 50px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 header .logo {
     font-size: 22px;
     font-weight: bold;
+}
+
+/* Бургер-меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Навигация */
+header nav {
+    display: flex;
+    transition: transform 0.3s ease;
 }
 
 header nav a {
@@ -91,6 +114,7 @@ header nav a:hover {
     text-decoration: none;
     font-size: 14px;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -103,6 +127,18 @@ header nav a:hover {
 
 .edit {
     background-color: #5b89f0 !important;
+}
+
+.post-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-icons {
+    display: flex;
 }
 
 /* Формы */
@@ -181,7 +217,8 @@ form button:hover {
 
 .profile_settings {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .photo_profile_form {
@@ -204,4 +241,110 @@ form button:hover {
 
 .photo_profile {
     width: 100%;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 1024px) {
+    .posts-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    header nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #222;
+        flex-direction: column;
+        padding: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 100;
+    }
+
+    header nav.nav-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    header nav a {
+        margin: 10px 0;
+        padding: 10px;
+        border-bottom: 1px solid #444;
+    }
+
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile_settings {
+        flex-direction: column;
+    }
+
+    .photo_profile_form, .desc_profile_form {
+        width: 90%;
+    }
+
+    .desc_profile_form textarea {
+        margin-top: 20px;
+    }
+
+    .post-actions {
+        align-items: center;
+    }
+
+    .action-icons {
+        margin-top: 10px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    form {
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    form input, form textarea {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 10px 15px;
+    }
+
+    .container {
+        margin: 15px auto;
+    }
+
+    #post .post-card .content {
+        padding: 15px;
+    }
+
+    #post .post-card h2 {
+        font-size: 22px;
+    }
+
+    .photo_profile_form input {
+        width: 91%;
+    }
+
+    .desc_profile_form textarea {
+        width: 93%;
+    }
 }
