@@ -1,4 +1,4 @@
-const host = 'https://postifyapi/api';
+const host = 'https://co538590.tw1.ru/';
 
 const app = Vue.createApp({
     data() {
