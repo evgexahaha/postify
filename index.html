@@ -154,7 +154,6 @@
                 </div>
             </div>
             <div v-if="comment.user.id === userPosts.id" style="display: flex; align-items: center;">
-                <img @click.prevent="updateComment(comment.id)" src="img/edit(black).svg" alt="edit" style="background-color: white; width: 30px">
                 <img @click.prevent="destroyComment(comment.id)" src="img/delete(black).svg" alt="delete" style="background-color: white; width: 30px; margin-left: 20px;">
             </div>
         </div>
