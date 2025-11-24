@@ -1,4 +1,4 @@
-const host = 'https://co538590.tw1.ru';
+const host = 'https://co538590.tw1.ru/api';
 
 const app = Vue.createApp({
     data() {
